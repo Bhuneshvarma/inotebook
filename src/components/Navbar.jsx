@@ -4,7 +4,7 @@ const Navbar = () => {
     let history = useNavigate();
     const handleLogout=()=>{
         localStorage.removeItem('token')
-        history("/login")
+        history("inotebook/login")
     }
    
     return (
