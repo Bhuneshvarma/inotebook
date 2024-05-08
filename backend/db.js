@@ -1,9 +1,8 @@
 /* eslint-disable no-undef */
+require('dotenv').config();
 const mongoose = require('mongoose');
 
-
-const mongoURI = "mongodb://127.0.0.1:27017/inotebook?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.0";
-// const mongoURI = "mongodb+srv://bhuneshvarma63:<password>@inotebook.lef3k1y.mongodb.net/?retryWrites=true&w=majority&appName=inotebook";
+const mongoURI = process.env.MONGODB_URI;
 
 const connectToMongo = async () => {
     try {
