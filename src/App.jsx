@@ -28,11 +28,11 @@ function App() {
           <Alert alert={alert} msg='this is amezing code'/>
           <div className="container">
             <Routes>
-              <Route exact path="/" element={<Home showAlert={showAlert} />} />
-              <Route exact path="/about" element={<About />} />
-              <Route exact path="/login" element={<Login showAlert={showAlert} />} />
-              <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
-              <Route exact path="/userinfo" element={<UserInfo showAlert={showAlert} />} />
+              <Route exact path="inotebook/" element={<Home showAlert={showAlert} />} />
+              <Route exact path="inotebook/about" element={<About />} />
+              <Route exact path="inotebook/login" element={<Login showAlert={showAlert} />} />
+              <Route exact path="inotebook/signup" element={<Signup showAlert={showAlert} />} />
+              <Route exact path="inotebook/userinfo" element={<UserInfo showAlert={showAlert} />} />
             </Routes>
           </div>
         </Router>
