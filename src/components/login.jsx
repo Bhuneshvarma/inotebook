@@ -1,34 +1,38 @@
 import { useState } from "react";
 import PropTypes from 'prop-types';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom/dist";
 
-const Login = ({ showAlert }) => {
+const Login = (props) => {
     const [credentials, setCredentials] = useState({ email: "", password: "" });
-    const history = useNavigate();
-
+    let history = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://inotebook-backend-rust.vercel.app/api/auth/login`, {
+            const response = await fetch(`http://localhost:5000/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(credentials)
+                body: JSON.stringify({ email: credentials.email, password: credentials.password })
             });
 
-            const data = await response.json();
-            if (response.ok) {
-                // Save the authtoken and redirect
-                localStorage.setItem('token', data.authtoken);
-                showAlert("Logged in Successfully", "success");
-                history('/');
+            const json = await response.json();
+            // console.log(json);
+            // Optionally, you can provide feedback to the user here
+            if (json.success) {
+                //Save the authtoken and redirect
+                localStorage.setItem('token', json.authtoken);
+                props.showAlert("Logged in Successfully", "success")
+                history("/");
+
             } else {
-                showAlert("Invalid credentials", "danger");
+                props.showAlert("Invalid credentials", "danger")
             }
+
+
         } catch (error) {
-            console.error('Error during login:', error);
-            showAlert("Error during login", "danger");
+            alert.error('Error during login:', error);
+            // Optionally, provide feedback to the user about the error
         }
     };
 
@@ -37,12 +41,12 @@ const Login = ({ showAlert }) => {
     };
 
     return (
-        <div className="container mt-4 p-xxl-3">
+        <div className="container mt-4 p-xxl-5 ">
             <h2>Login to continue iNotebook</h2>
             <form className="mt-3" onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
-                    <input type="email" className="form-control" value={credentials.email} name="email" id="email" onChange={onChange} />
+                    <input type="email" className="form-control" value={credentials.email} name="email" aria-describedby="emailHelp" id="email" onChange={onChange} />
                 </div>
                 <div className="mb-3">
                     <label htmlFor="password" className="form-label">Password</label>
@@ -53,9 +57,7 @@ const Login = ({ showAlert }) => {
         </div>
     );
 };
-
 Login.propTypes = {
-    showAlert: PropTypes.func.isRequired
+    showAlert: PropTypes.func
 };
-
 export default Login;
