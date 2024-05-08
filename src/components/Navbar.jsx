@@ -12,7 +12,7 @@ const Navbar = () => {
             
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">iNotebook</Link>
+                    <Link className="navbar-brand" to="inotebook/">iNotebook</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -26,9 +26,9 @@ const Navbar = () => {
                             </li>
                         </ul>
                        {!localStorage.getItem('token')?<form className="d-flex">
-                                <Link className="btn btn-primary mx-1" to="/login" role='button'>Login</Link>
-                                <Link className="btn btn-primary mx-1"  to="/signup" role='button'>Signup</Link>
-                        </form>:<><button><Link className='nav-link mx-2' aria-current="page" to="/userinfo">UserInfo</Link></button><button onClick={handleLogout} className='btn btn-primary mx-2'>Logout</button></>}
+                                <Link className="btn btn-primary mx-1" to="inotebook/login" role='button'>Login</Link>
+                                <Link className="btn btn-primary mx-1"  to="inotebook/signup" role='button'>Signup</Link>
+                        </form>:<><button><Link className='nav-link mx-2' aria-current="page" to="inotebook/userinfo">UserInfo</Link></button><button onClick={handleLogout} className='btn btn-primary mx-2'>Logout</button></>}
                     </div>
                 </div>
             </nav>
