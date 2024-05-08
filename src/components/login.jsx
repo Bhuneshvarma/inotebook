@@ -9,7 +9,7 @@ const Login = ({ showAlert }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost/api/auth/login`, {
+            const response = await fetch(`http://inotebook-backend-rust.vercel.app/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
