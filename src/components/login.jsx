@@ -42,7 +42,7 @@ const Login = (props) => {
     return (
         <div  className="container mt-4  p-xxl-3">
             <h2 >Login to continue iNotebook</h2>
-            <form  className="mt-3" onSubmit={handleSubmit}>
+            <form method="POST" className="mt-3" onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
                     <input type="email" className="form-control" value={credentials.email} name="email" aria-describedby="emailHelp" id="email" onChange={onChange} />
