@@ -40,7 +40,7 @@ const Login = (props) => {
     };
 
     return (
-        <div style={{backgroundColor:"#cde2f9"}} className="container mt-4  p-xxl-3">
+        <div  className="container mt-4  p-xxl-3">
             <h2 >Login to continue iNotebook</h2>
             <form  className="mt-3" onSubmit={handleSubmit}>
                 <div className="mb-3">
