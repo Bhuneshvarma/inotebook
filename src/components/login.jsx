@@ -40,8 +40,8 @@ const Login = (props) => {
     };
 
     return (
-        <div style={{backgroundColor:"#cde2f9"}} className="container mt-4 w-50 h-100 p-xxl-5 ">
-            <h2 style={{marginLeft:"100px",marginBottom:"50px"}}>Login to continue iNotebook</h2>
+        <div style={{backgroundColor:"#cde2f9"}} className="container mt-4  p-xxl-3">
+            <h2 >Login to continue iNotebook</h2>
             <form  className="mt-3" onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>
@@ -51,7 +51,7 @@ const Login = (props) => {
                     <label htmlFor="password" className="form-label">Password</label>
                     <input type="password" className="form-control" value={credentials.password} id="password" name="password" onChange={onChange} />
                 </div>
-                <button style={{marginLeft:"260px", marginTop:"10px" ,padding:"7px"}} type="submit" className="btn btn-primary">Login</button>
+                <button  type="submit" className="btn btn-primary">Login</button>
             </form>
         </div>
     );
