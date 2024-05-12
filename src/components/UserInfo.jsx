@@ -7,11 +7,11 @@ const UserInfo = () => {
         email: ''
     });
     const [showForm, setShowForm] = useState(false);
-
+    const backendApiUrl = import.meta.env.VITE_BACKEND_API;
     useEffect(() => {
         const getUserInfo = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/auth/getuser`, {
+                const response = await fetch(`${backendApiUrl}/api/auth/getuser`, {
                     method: 'POST',
                     headers: {
                         "auth-token": localStorage.getItem('token')

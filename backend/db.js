@@ -1,8 +1,9 @@
 /* eslint-disable no-undef */
+// db.js
 require('dotenv').config();
 const mongoose = require('mongoose');
 
-const mongoURI = process.env.MONGODB_URI;
+const mongoURI = "mongodb+srv://bhuneshvarma63:VYS91t7bWMYHt9HD@inotebook.zqifxiq.mongodb.net/inotebook";
 
 const connectToMongo = async () => {
     try {

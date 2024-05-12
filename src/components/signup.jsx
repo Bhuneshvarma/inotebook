@@ -1,19 +1,19 @@
 import { useState } from "react";
 import PropTypes from 'prop-types';
-import { useNavigate } from "react-router-dom/dist";
+import { useNavigate } from "react-router-dom";
 
 
 const Signup = (props) => {
 
   const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" });
   let history = useNavigate();
-
+  const backendApiUrl = import.meta.env.VITE_BACKEND_API;
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const { name, email, password } = credentials;
-      const response = await fetch(`http://inotebook-backend-rust.vercel.app/api/auth/createuser`, {
+      const response = await fetch(`${backendApiUrl}/api/auth/createuser`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -27,7 +27,7 @@ const Signup = (props) => {
       if (json.success) {
         //Save the authtoken and redirect
         localStorage.setItem('token', json.authtoken);
-        history("/");
+        history('/');
         props.showAlert("Account Created Successfully", "success")
 
       } else {

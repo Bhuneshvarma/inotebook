@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import NoteContext from './noteContext';
 
 const NoteState = (props) => {
-    const host = "http://localhost:5000"
+    const host = import.meta.env.VITE_BACKEND_API;
     const notesInitial = []
     const [notes, setNotes] = useState(notesInitial);
 

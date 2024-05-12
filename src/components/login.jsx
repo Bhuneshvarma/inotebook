@@ -1,14 +1,15 @@
 import { useState } from "react";
 import PropTypes from 'prop-types';
-import { useNavigate } from "react-router-dom/dist";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({ email: "", password: "" });
     let history = useNavigate();
+    const backendApiUrl = import.meta.env.VITE_BACKEND_API;
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:5000/api/auth/login`, {
+            const response = await fetch(`${backendApiUrl}/api/auth/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
